@@ -1,0 +1,27 @@
+{
+  "name": "invoice-payment-system-api",
+  "version": "1.0.0",
+  "description": "Accelerator SAP S/4HANA Invoice Payment System API",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "swagger",
+    "api",
+    "payments",
+    "invoices"
+  ],
+  "author": "Carlos Rodriguez Iturria",
+  "license": "MIT",
+  "engines": {
+    "node": ">=4.1.0 <5.5.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.6.5",
+    "express": "^4.8.5",
+    "mongodb": "^2.2.24",
+    "monk": "^4.0.0",
+    "js-yaml": "^3.8.4"
+  }
+}

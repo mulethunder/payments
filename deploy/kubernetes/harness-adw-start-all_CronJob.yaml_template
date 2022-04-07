@@ -1,0 +1,18 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: harness-adw-start-all
+spec:
+  schedule: "0 22 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: harness-adw-start-all
+            image: cciturria/ubuntu-curl:1.0
+            args:
+            - /bin/sh
+            - -c
+            - curl -X PUT http://payments-service.payments.svc.cluster.local:3000/services/adw?action=start
+          restartPolicy: OnFailure
