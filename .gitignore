@@ -30,3 +30,7 @@ payments.zip*
 
 deploy.sh
 undeploy.sh
+
+*-lock.json
+
+.DS_Store

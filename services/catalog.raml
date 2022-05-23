@@ -1,0 +1,68 @@
+#%RAML 1.0
+title: Catalog - OAH
+description: Catalog System System Layer API
+mediaType:
+  - application/json
+protocols:
+  - HTTPS
+/customers:
+  get:
+    displayName: Customers
+    description: Returns all customers from DB
+    responses:
+      "200":
+        body:
+          application/json:
+            items:
+              type: Customer
+/customer/{id}:
+  get:
+    displayName: Customer by Customer Number
+    description: Return the customer based on custNumber
+    responses:
+      "200":
+        body:
+          type: Customer
+    securedBy: []
+  uriParameters:
+    id:
+      type: string
+baseUri: http://catalog-oah-sys.us-e2.cloudhub.io/api
+types:
+  Customer:
+    properties:
+      custNumber:
+        description: customer data
+        example: "1212"
+        type: string
+      custName:
+        description: customer name
+        example: LL LLC
+        type: string
+      contactLastName:
+        example: Levy
+        type: string
+      contactFirstName:
+        example: Levy
+        type: string
+      phone:
+        example: 916-555-1212
+        type: string
+      address:
+        example: 1234 17th Street
+        type: string
+      city:
+        example: Sacramento
+        type: string
+      state:
+        example: CA
+        type: string
+      postalCode:
+        example: "95818"
+        type: string
+      country:
+        example: USA
+        type: string
+      caseRepEmployeeNumber:
+        example: "1234567"
+        type: string
