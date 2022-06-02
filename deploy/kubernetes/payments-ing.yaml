@@ -1,17 +1,16 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: apis4harnessingress
-  annotations:
-    kubernetes.io/ingress.class: traefik
-    traefik.frontend.rule.type: PathPrefixStrip
-  namespace: apis4harness      
+  name: jsonplaceholder
 spec:
+  ingressClassName: ingress-http.gateway
   rules:
-  - host:
-    http:
+  - http:
       paths:
-      - path: /apis4harness
+      - path: /api(/.*)
+        pathType: ImplementationSpecific
         backend:
-          serviceName: apis4harnessservice
-          servicePort: http
+          service:
+            name: paymentsservice
+            port:
+              number: 80

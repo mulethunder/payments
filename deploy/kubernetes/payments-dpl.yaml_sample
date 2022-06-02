@@ -2,63 +2,26 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: apis4harnessdeployment
+  name: paymentsdeployment
   labels:
-    app: apis4harness
+    app: payments
     microservice: app
-  namespace: apis4harness
+  namespace: payments
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: apis4harness
+      app: payments
       microservice: app
   template:
     metadata:
       labels:
-        app: apis4harness
+        app: payments
         microservice: app
         version: v0.0.1
     spec:
       containers:
-      - name: apis4harness
-        image: ENTER_IMAGE_TAG_NAME_HERE
-        env:
-        - name: API_GW_ENABLED
-          value: "true"
-        - name: API_GW_SERVER
-          value: "lbaas.xxxx.xxx"
-        - name: API_GW_BASEURL
-          value: "/apis4harness"
-        - name: identityDomain
-          value: "identity.xx-xxxxxxx-1.oraclecloud.com"
-        - name: coreServicesDomain
-          value: "iaas.xx-xxxxxxxx-1.oraclecloud.com"
-        - name: databaseServicesDomain
-          value: "database.xx-xxxxxxx-1.oraclecloud.com"
-        - name: tenancyId
-          value: "ocid1.tenancy.oc1..aaaaaaaa7gxxxxx..."
-        - name: compartmentId
-          value: "ocid1.compartment.oc1..aaaaaaxxxxx..."
-        - name: apiUserId
-          value: "ocid1.user.oc1..aaaaaaaapgr7xhxxxxx..."
-        - name: publicKeyFingerprint
-          value: "9e:29:39:59:2b:b1:c9:4f:b5:bxxxxx..."
-        - name: pathToKey
-          value: "./ssh/id_rsa_pri.pem"
-        - name: dbpasswd
-          value: "Welcome1#Welcome1#"          
-        - name: PORT
-          value: "3000"             
-        - name: SMS_SERVER
-          value: "lb.xxxx.com"             
-        - name: SMS_PORT
-          value: "443"             
-        - name: SMS_PATH
-          value: "/notifications/sms"             
-        - name: VOICE_PATH
-          value: "/notifications/voice"                    
+      - name: payments
+        image: ENTER_IMAGE_TAG_NAME_HERE                 
         ports:
         - containerPort: 3000
-      imagePullSecrets:
-      - name: ocir-reg
