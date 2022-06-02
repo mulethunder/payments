@@ -1,8 +1,7 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: paymentsdeployment
+  name: payments-deployment
   labels:
     app: payments
     microservice: app
@@ -18,10 +17,20 @@ spec:
       labels:
         app: payments
         microservice: app
-        version: v0.0.1
+        version: v1
     spec:
       containers:
       - name: payments
-        image: ENTER_IMAGE_TAG_NAME_HERE                 
+        image: mulethunder/payments:1.0
+        resources:
+          limits:
+            memory: 512Mi
+            cpu: "1"
+          requests:
+            memory: 256Mi
+            cpu: "0.2"
+        env:         
+        - name: PORT
+          value: "3000"                      
         ports:
         - containerPort: 3000
