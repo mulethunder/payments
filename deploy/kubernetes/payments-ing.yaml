@@ -8,7 +8,7 @@ spec:
   rules:
   - http:
       paths:
-      - path: /services(/payments/.*)
+      - path: /services(/payments.*)
         pathType: ImplementationSpecific
         backend:
           service:
