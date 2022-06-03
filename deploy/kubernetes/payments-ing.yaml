@@ -4,7 +4,7 @@ metadata:
   name: payments-ingress
   namespace: payments
 spec:
-  ingressClassName: ingress-http.gateway
+  ingressClassName: ingress-http.flex.gw
   rules:
   - http:
       paths:
