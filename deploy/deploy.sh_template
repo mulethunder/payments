@@ -8,7 +8,7 @@
 
   kubectl create -f kubernetes/payments-dpl.yaml
   kubectl create -f kubernetes/payments-svc.yaml
-  kubectl create -f kubernetes/payments-ing.yaml
+  #kubectl create -f kubernetes/payments-ing.yaml
 
   #kubectl create -f kubernetes/harness-adw-stop-all_CronJob.yaml
   #kubectl create -f kubernetes/harness-atp-stop-all_CronJob.yaml
