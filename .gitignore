@@ -25,7 +25,7 @@ setEnv.sh
 temp_*
 tempK8s/
 
-payments-dpl.yaml
+
 payments.zip*
 
 deploy.sh
