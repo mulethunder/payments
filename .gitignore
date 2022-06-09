@@ -33,4 +33,4 @@ undeploy.sh
 
 *-lock.json
 
-*DS_Store
+**/.DS_Store
