@@ -16,7 +16,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: payments-service-2
+  name: orders-service
   namespace: payments
 spec:
   ports:
