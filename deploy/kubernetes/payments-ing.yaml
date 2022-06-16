@@ -5,7 +5,7 @@ metadata:
   name: payments-ingress
   namespace: payments
 spec:
-  ingressClassName: ingress-http.flex-gw
+  ingressClassName: ingress-http.gateway
   rules:
   - http:
       paths:
@@ -16,3 +16,10 @@ spec:
             name: payments-service
             port:
               number: 3000
+      - path: /services/orders(/payments.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: orders-service
+            port:
+              number: 3001

@@ -1,0 +1,36 @@
+---
+apiVersion: gateway.mulesoft.com/v1alpha1
+kind: PolicyBinding
+metadata:
+  name: payments-policy-auth
+  namespace: gateway
+spec:
+  targetRef:
+    name: ingress-http
+  policyRef:
+    name: http-basic-authentication-flex
+  config:
+    username: max
+    password: mule
+  rules:
+    - path: /services(/payments.*)
+---
+apiVersion: gateway.mulesoft.com/v1alpha1
+kind: PolicyBinding
+metadata:
+  name: payments-policy-rate-limit
+  namespace: gateway
+spec:
+  targetRef:
+    name: ingress-http
+  policyRef:
+    name: rate-limiting-flex
+  config:
+     keySelector: "#[attributes.method]"
+     exposeHeaders: true
+     rateLimits:
+     - maximumRequests: 5
+       timePeriodInMilliseconds: 5000
+  rules:
+  - path: /services(/payments.*)
+---
