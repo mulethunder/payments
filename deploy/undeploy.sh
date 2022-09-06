@@ -7,5 +7,3 @@
   kubectl delete secret dhreg --namespace=payments
   kubectl delete namespace payments
 
-  #kubectl delete cronjob harness-adw-stop-all
-  #kubectl delete cronjob harness-atp-stop-all
