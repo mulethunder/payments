@@ -34,3 +34,4 @@ undeploy.sh
 *-lock.json
 
 **/.DS_Store
+**/package-lock.json
